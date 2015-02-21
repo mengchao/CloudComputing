@@ -165,18 +165,18 @@ else
 	done
 	if [ $cnt -eq 10 ]; then
 		grade=`expr $grade + 15`
-		echo "Checking Join..................15/15"
+		echo "Checking Join..................10/10"
 	else
-		echo "Checking Join..................0/15"
+		echo "Checking Join..................0/10"
 	fi
 fi
 failednode=`grep "Node failed at time" dbg.log | sort -u | awk '{print $1}'`
 failcount=`grep removed dbg.log | sort -u | grep $failednode | wc -l`
 if [ $failcount -ge 9 ]; then
 	grade=`expr $grade + 15`
-	echo "Checking Completeness..........15/15"
+	echo "Checking Completeness..........10/10"
 else
-	echo "Checking Completeness..........0/15"
+	echo "Checking Completeness..........0/10"
 fi
 #failednode=`grep failed dbg.log | sort -u | awk '{print $1}'`
 #accuracycount=`grep removed dbg.log | sort -u | grep -v $failednode | wc -l`

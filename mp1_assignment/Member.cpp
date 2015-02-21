@@ -30,9 +30,11 @@ Address& Address::operator =(const Address& anotherAddress) {
 
 /**
  * Compare two Address objects
+ * Return true/non-zero if they have the same ip address and port number 
+ * Return false/zero if they are different 
  */
 bool Address::operator ==(const Address& anotherAddress) {
-	return memcmp(this->addr, anotherAddress.addr, sizeof(this->addr));
+	return !memcmp(this->addr, anotherAddress.addr, sizeof(this->addr));
 }
 
 /**
